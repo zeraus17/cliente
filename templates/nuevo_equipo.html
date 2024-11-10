@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Equipo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Agregar Nuevo Equipo</h1>
+        <form action="{{ url_for('nuevo_equipo') }}" method="post">
+            <label for="nombre_cliente">Nombre del Cliente:</label>
+            <input type="text" id="nombre_cliente" name="nombre_cliente" required>
+
+            <label for="telefono_cliente">Teléfono:</label>
+            <input type="text" id="telefono_cliente" name="telefono_cliente">
+
+            <label for="email_cliente">Email:</label>
+            <input type="email" id="email_cliente" name="email_cliente">
+
+            <label for="marca">Marca:</label>
+            <input type="text" id="marca" name="marca" required>
+
+            <label for="modelo">Modelo:</label>
+            <input type="text" id="modelo" name="modelo" required>
+
+            <label for="tipo">Tipo de Electrodoméstico:</label>
+            <input type="text" id="tipo" name="tipo" required>
+
+            <label for="numero_serie">Número de Serie:</label>
+            <input type="text" id="numero_serie" name="numero_serie">
+
+            <label for="descripcion">Descripción del Problema:</label>
+            <textarea id="descripcion" name="descripcion" required></textarea>
+
+            <!-- Campo de entrada para empresa derivadora -->
+            <label for="empresa_derivadora">Empresa Derivadora:</label>
+            <input type="text" id="empresa_derivadora" name="empresa_derivadora" required>
+
+            <button type="submit">Agregar Equipo</button>
+        </form>
+    </div>
+</body>
+</html>

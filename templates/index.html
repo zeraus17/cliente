@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Reparaciones</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Gestión de Reparaciones</h1>
+        <a href="{{ url_for('nuevo_equipo') }}">
+            <button>Agregar Nuevo Equipo</button>
+        </a>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Cliente</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for equipo in equipos %}
+                    <tr>
+                        <td>{{ equipo[0] }}</td>
+                        <td>{{ equipo[1] }}</td>
+                        <td>{{ equipo[4] }}</td>
+                        <td>{{ equipo[5] }}</td>
+                        <td>{{ equipo[8] }}</td>
+                        <td>
+                            <a href="{{ url_for('consulta', id=equipo[0]) }}"><button>Ver</button></a>
+                            <a href="{{ url_for('editar_equipo', id=equipo[0]) }}"><button>Editar</button></a>
+                            <form action="{{ url_for('eliminar_equipo', id=equipo[0]) }}" method="post" style="display: inline;">
+                                <button type="submit">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

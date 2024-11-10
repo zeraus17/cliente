@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Equipo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Detalles del Equipo</h1>
+        <p><strong>ID:</strong> {{ equipo[0] }}</p>
+        <p><strong>Nombre del Cliente:</strong> {{ equipo[1] }}</p>
+        <p><strong>Teléfono:</strong> {{ equipo[2] }}</p>
+        <p><strong>Email:</strong> {{ equipo[3] }}</p>
+        <p><strong>Marca:</strong> {{ equipo[4] }}</p>
+        <p><strong>Modelo:</strong> {{ equipo[5] }}</p>
+        <p><strong>Tipo:</strong> {{ equipo[6] }}</p>
+        <p><strong>Número de Serie:</strong> {{ equipo[7] }}</p>
+        <p><strong>Descripción:</strong> {{ equipo[8] }}</p>
+        <p><strong>Estado:</strong> {{ equipo[9] }}</p>
+        <form action="{{ url_for('actualizar_estado', id=equipo[0]) }}" method="post">
+            <label for="estado">Actualizar Estado:</label>
+            <select id="estado" name="estado">
+                <option value="En revisión">En revisión</option>
+                <option value="Reparado">Reparado</option>
+                <option value="No reparado">No reparado</option>
+            </select>
+            <button type="submit">Actualizar</button>
+        </form>
+    </div>
+</body>
+</html>
